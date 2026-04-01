@@ -6,22 +6,20 @@ const ContentCollection = ({
     type
 } : ResultObj ) => {
 
-    if ( type == 'Hero' ) {
-        
-        return (
-
-            <Hero 
-                {
-                    ...{
-                        ...result
+    switch ( type ) {
+        case 'Hero' :
+            return (
+                <Hero 
+                    {
+                        ...{
+                            ...result
+                        }
                     }
-                }
-            />
-
-        );
-
+                />
+            )
+        default : 
+            return null;
     }
-
 }
 
 export default ContentCollection;

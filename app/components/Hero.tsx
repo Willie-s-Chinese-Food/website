@@ -9,14 +9,16 @@ const Hero = ({
 }: HeroProps ) => {
     return (
 
-        <div>
-            <h1 className='text-4xl'>
-                { title }
-            </h1>
-            <p>
-                { description }
-            </p>
-        </div>
+        <section className='bg-brand-red'>
+            <div className='custom-wrapper py-[132px]'>
+                <h1 className='text-4xl text-white'>
+                    { title }
+                </h1>
+                <p className='text-white'>
+                    { description }
+                </p>
+            </div>
+        </section>
 
     );
 }
