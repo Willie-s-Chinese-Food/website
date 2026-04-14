@@ -20,9 +20,8 @@ export default function RootLayout({
 	return (
 		<html
 			lang="en"
-			className={`${jost.className}`}
 		>
-			<body className="min-h-full flex flex-col">
+			<body className="min-h-full flex flex-col font-jost">
 				{ children }
 			</body>
 		</html>
