@@ -1,4 +1,5 @@
 import { LinkObj } from "@/app/utility/types";
+import BackgroundImage from "@/public/Hero Background Waves.jpg";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -16,14 +17,29 @@ const Hero = ({
     image
 }: HeroProps ) => {
 
-    console.log(image)
-
     return (
 
-        <section className='bg-brand-red text-white'>
-            <div className='md:flex-row flex-col-reverse custom-wrapper pb-[80px] flex items-center justify-between space-x-12'>
-                <div className='md:w-1/2 w-auto space-y-6'>
-                    <h1 className='text-5xl font-medium'>
+        <section 
+            {
+                ...{
+                    className : 'relative bg-brand-red text-white'
+                }
+            }
+        >
+            <Image
+                fill
+                priority
+                {
+                    ...{
+                            src : BackgroundImage.src,
+                            alt : '',
+                            className : 'absolute h-full w-full mix-blend-darken bg-center bg-no-repeat object-cover opacity-20'
+                    }
+                }
+            />
+            <div className='mt-[150px] relative md:flex-row flex-col-reverse md:space-x-12 space-x-0 gap-y-8 custom-wrapper pb-[80px] flex items-center justify-between'>
+                <div className='md:w-1/2 w-full space-y-6'>
+                    <h1 className='text-4xl font-medium'>
                         { title }
                     </h1>
                     <p className='text-lg '>
@@ -44,11 +60,12 @@ const Hero = ({
                 {
                     image &&
                     <Image 
-                        className="md:w-1/2 w-full rounded-2xl"
+                        className="md:w-1/2 max-w-lg w-full rounded-2xl"
                         src = { image.url }
-                        alt = ""
+                        alt = ''
                         width = { image.width }
-                        height= { image.height }
+                        height = { image.height }
+                        priority
                     />
                 }
             </div>
